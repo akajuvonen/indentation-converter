@@ -1,6 +1,10 @@
 #!/usr/bin/env python
 import sys
 
+# TODO: Add new indent character argument, now the same is used.
+# Add argument parsing.
+# Add some checks (e.g., for when the file has an unexpected # of indents).
+
 def indentation_converter(filename,ind_char=' ',old_ind=2,new_ind=4):
     """Converts indentation from one character and length to something else.
     Arguments:
