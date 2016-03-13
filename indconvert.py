@@ -1,6 +1,9 @@
 #!/usr/bin/env python
+import sys
 
 def indentation_converter(filename,ind_char=' ',old_ind=2,new_ind=4):
+    if len(sys.argv)>1:
+        filename = sys.argv[1]
     with open(filename,'r') as f:
         for line in f:
             strippedline = line.lstrip(ind_char)
