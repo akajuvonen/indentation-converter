@@ -29,15 +29,17 @@ def indentation_converter(filename,ind_char,old_ind,new_ind):
             with open (filename+'_new','a') as of:
                 of.write(newline)
 
-def main():
+def parse_args(args):
     parser = argparse.ArgumentParser()
     parser.add_argument('-f','--filename',type=str,help='The filename of the file that needs its indentation changed',required=True)
     parser.add_argument('-i','--indchar',type=str,help='The character used for indentation',required=True)
     parser.add_argument('-o','--oldind',type=int,help='The existing number of indentation characters used (for one indentation)',required=True)
     parser.add_argument('-n','--newind',type=int,help='The new wanted number of indentation characters',required=True)
-    args = parser.parse_args()
-    v = vars(args)
-    indentation_converter(v['filename'],v['indchar'],v['oldind'],v['newind'])
+    arguments = parser.parse_args(args)
+    v = vars(arguments)
+    return v['filename'],v['indchar'],v['oldind'],v['newind']
+def main():
+    filename,indchar,oldint,newind = parse_args(sys.argv[1:])
 
 if __name__=='__main__':
     main()
