@@ -3,7 +3,6 @@ import sys
 import argparse
 
 # TODO: Add new indent character argument, now the same is used.
-# Add argument parsing.
 # Add some checks (e.g., for when the file has an unexpected # of indents).
 
 def indentation_converter(filename,ind_char,old_ind,new_ind):
@@ -32,10 +31,13 @@ def indentation_converter(filename,ind_char,old_ind,new_ind):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('-f','--filename',type=str,help='The filename the indentation of which needs to be changed',required=True)
+    parser.add_argument('-f','--filename',type=str,help='The filename of the file that needs its indentation changed',required=True)
+    parser.add_argument('-i','--indchar',type=str,help='The character used for indentation',required=True)
+    parser.add_argument('-o','--oldind',type=int,help='The existing number of indentation characters used (for one indentation)',required=True)
+    parser.add_argument('-n','--newind',type=int,help='The new wanted number of indentation characters',required=True)
     args = parser.parse_args()
-    filename = args.filename
-    indentation_converter(filename,' ',2,4)
+    v = vars(args)
+    indentation_converter(v['filename'],v['indchar'],v['oldind'],v['newind'])
 
 if __name__=='__main__':
     main()
