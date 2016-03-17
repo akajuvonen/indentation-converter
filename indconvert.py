@@ -33,7 +33,7 @@ def indentation_converter(filename,ind_char=' ',old_ind=2,new_ind=4):
                 of.write(newline)
 
 def main():
-    filename = 'testfile.txt'
+    filename = 'tests/testfile.txt'
     indentation_converter(filename)
 
 if __name__=='__main__':
