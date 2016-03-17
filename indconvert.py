@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 import sys
+import argparse
 
 # TODO: Add new indent character argument, now the same is used.
 # Add argument parsing.
 # Add some checks (e.g., for when the file has an unexpected # of indents).
 
-def indentation_converter(filename,ind_char=' ',old_ind=2,new_ind=4):
+def indentation_converter(filename='testfile.txt',ind_char=' ',old_ind=2,new_ind=4):
     """Converts indentation from one character and length to something else.
     Arguments:
     filename -- The file name to be changed. The original file will not be touched
@@ -33,8 +34,8 @@ def indentation_converter(filename,ind_char=' ',old_ind=2,new_ind=4):
                 of.write(newline)
 
 def main():
-    filename = 'testfile.txt'
-    indentation_converter(filename)
+    parser = argparse.ArgumentParser()
+    indentation_converter()
 
 if __name__=='__main__':
     main()
