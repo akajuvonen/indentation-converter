@@ -30,6 +30,15 @@ def indentation_converter(filename,ind_char,old_ind,new_ind):
                 of.write(newline)
 
 def parse_args(args):
+    """Argument parser for indentation converter.
+    Arguments:
+    args -- Command line arguments, can be retrieved from sys.argv[1:]
+    Returns:
+    filename -- The parsed filename (str)
+    indchar -- Indentation character (str)
+    oldind -- Old indentation (int)
+    newind -- New indentation count (int)
+    """
     parser = argparse.ArgumentParser()
     parser.add_argument('-f','--filename',type=str,help='The filename of the file that needs its indentation changed',required=True)
     parser.add_argument('-i','--indchar',type=str,help='The character used for indentation',required=True)
