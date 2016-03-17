@@ -6,7 +6,7 @@ import argparse
 # Add argument parsing.
 # Add some checks (e.g., for when the file has an unexpected # of indents).
 
-def indentation_converter(filename='testfile.txt',ind_char=' ',old_ind=2,new_ind=4):
+def indentation_converter(filename,ind_char,old_ind,new_ind):
     """Converts indentation from one character and length to something else.
     Arguments:
     filename -- The file name to be changed. The original file will not be touched
@@ -16,9 +16,6 @@ def indentation_converter(filename='testfile.txt',ind_char=' ',old_ind=2,new_ind
     Output:
     Returns nothing. Writes changes to [filename_new] file
     """
-    # Check for cli args. This will be changed to argparse
-    if len(sys.argv)>1:
-        filename = sys.argv[1]
     # Open the file
     with open(filename,'r') as f:
         # Process line by line
@@ -35,7 +32,10 @@ def indentation_converter(filename='testfile.txt',ind_char=' ',old_ind=2,new_ind
 
 def main():
     parser = argparse.ArgumentParser()
-    indentation_converter()
+    parser.add_argument('-f','--filename',type=str,help='The filename the indentation of which needs to be changed',required=True)
+    args = parser.parse_args()
+    filename = args.filename
+    indentation_converter(filename,' ',2,4)
 
 if __name__=='__main__':
     main()
