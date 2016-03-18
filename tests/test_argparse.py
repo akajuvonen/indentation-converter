@@ -1,6 +1,12 @@
 import unittest
 from indconvert import parse_args
 
+# Note:
+# There could (and should) be many other tests, such as tests for
+# missing arguments, or invalid argument types. However, argparse
+# shows a message and exits when anything goes wrong. It's not very
+# test friendly. Perhaps these will be added later.
+
 class TestArgParse(unittest.TestCase):
     """Tests for argument parsing."""
     def test_arg_parse(self):
