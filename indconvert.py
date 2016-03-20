@@ -42,7 +42,11 @@ def parse_args(args):
     return v['filename'],v['indchar'],v['oldind'],v['newind']
 
 def main():
-    filename,indchar,oldint,newind = parse_args(sys.argv[1:])
+    filename,indchar,oldind,newind = parse_args(sys.argv[1:])
+    with open(filename,'r') as infile:
+        for line in infile:
+            with open(filename+'_out','a') as outfile:
+                outfile.write(indentation_converter(line,indchar,oldind,newind))
 
 if __name__=='__main__':
     main()
