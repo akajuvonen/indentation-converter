@@ -42,6 +42,14 @@ def parse_args(args):
     return v['filename'],v['indchar'],v['oldind'],v['newind']
 
 def read_write(filename,indchar,oldind,newind):
+    """Reads the specified file and writes the lines with new indentation
+    to the new file.
+    Arguments:
+    filename -- The name of the file to read
+    indchar -- Indentation character
+    oldind -- Old number of indentation
+    newind -- New indentation
+    """
     # Open and read line by line
     with open(filename,'r') as infile:
         for line in infile:
@@ -52,6 +60,7 @@ def read_write(filename,indchar,oldind,newind):
 def main():
     # Parse the arguments
     filename,indchar,oldind,newind = parse_args(sys.argv[1:])
+    # Read the infile and write to a new file
     read_write(filename,indchar,oldind,newind)
 
 if __name__=='__main__':
