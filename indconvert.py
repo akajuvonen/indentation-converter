@@ -20,6 +20,9 @@ def indentation_converter(line,ind_char=' ',old_ind=2,new_ind=4):
     strippedline = line.lstrip(ind_char)
     # Measure how many indents there were originally in the line
     indcount = len(line) - len(strippedline)
+    # If the indentation count doesn't match, raise an exception
+    if indcount%old_ind > 0:
+        raise IndentationException('The number of indentation not divisible by indentation count: ' + str(old_ind))
     # Create the new line with the desired indent count
     newline = ind_char*(indcount/old_ind*new_ind) + strippedline
     return newline
