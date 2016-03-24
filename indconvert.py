@@ -2,7 +2,9 @@
 import sys
 import argparse
 
-# TODO: Add new indent character argument, now the same is used.
+class IndentationException(Exception):
+    """An exception that is raised when the indentation count doesn't match."""
+    pass
 
 def indentation_converter(line,ind_char=' ',old_ind=2,new_ind=4):
     """Converts indentation from one character and length to something else.
