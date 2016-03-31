@@ -15,6 +15,8 @@ class TestIndentationConverter(unittest.TestCase):
 
     def test_abnormal_indent_count(self):
         """Test that an exception is raised when ind count does not match the file"""
+        # The testline has indentation count of 3, 2 is expected
         testline = '   asd'
+        # Check that the appropriate exception is raised
         self.assertRaises(IndentationException,indentation_converter,testline,' ',2,4)
         
