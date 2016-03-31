@@ -11,7 +11,7 @@ class TestIndentationConverter(unittest.TestCase):
         expectedlines = ['asd','    asd','        asd']
         # Compare the results
         for tline,eline in zip(testlines,expectedlines):
-            self.assertEqual(indentation_converter(tline),eline)
+            self.assertEqual(indentation_converter(tline,' ',2,4),eline)
 
     def test_abnormal_indent_count(self):
         """Test that an exception is raised when ind count does not match the file"""
@@ -19,4 +19,3 @@ class TestIndentationConverter(unittest.TestCase):
         testline = '   asd'
         # Check that the appropriate exception is raised
         self.assertRaises(IndentationException,indentation_converter,testline,' ',2,4)
-        
